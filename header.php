@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ session_start();
     <header>
         <h1>Members only</h1>
         <div>
-            <?php if (!empty($_SESSION["username"])): ?>
+            <?php if (isLoggedIn()): ?>
                 <p><?= $_SESSION["username"] ?></p>
                 <a href="auth/logout.php">Log out</a>
             <?php else: ?>
