@@ -1,13 +1,7 @@
 <?php
 require_once "../db.php";
+require_once "../functions.php";
 session_start();
-
-// Gets form value and trims whitespace
-function getFormValue(string $key): string
-{
-  $value = $_POST[$key] ?? "";
-  return trim($value);
-}
 
 $username = getFormValue("username");
 $password = getFormValue("password");
