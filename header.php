@@ -18,9 +18,7 @@ session_start();
         <div>
             <?php if (!empty($_SESSION["username"])): ?>
                 <p><?= $_SESSION["username"] ?></p>
-                <form action="auth/logout.php" method="post">
-                    <button type="submit">Logout</button>
-                </form>
+                <a href="auth/logout.php">Log out</a>
             <?php else: ?>
                 <a href="login.php">Login</a>
                 <a href="register.php">Register</a>
