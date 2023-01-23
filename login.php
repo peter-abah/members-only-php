@@ -13,4 +13,11 @@
   <button type="submit">Login</button>
 </form>
 
+<!-- Show error message if any -->
+<?php if (!empty($_SESSION["error-msg"])): ?>
+    <p>Unable to register. <?= $_SESSION["error-msg"] ?></p>
+<?php endif;
+unset($_SESSION["error-msg"]);
+?>
+
 <?php include_once "footer.php"; ?>
