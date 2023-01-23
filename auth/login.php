@@ -13,13 +13,8 @@ if (!$username || !$password) {
   exit;
 }
 
-// Check for duplicate username
-$statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-$statement->bindValue("username", $username);
-$statement->execute();
-$user = $statement->fetch(PDO::FETCH_ASSOC);
-
 // Validate user with username exists and password is correct
+$user = fetchUserByUsername($username);
 if (!$user || !password_verify($password, $user["password_hash"])) {
   $_SESSION["error-msg"] = "Invalid username or password";
   header("Location: ../login.php");

@@ -21,11 +21,7 @@ if ($password != $passwordConfirmation) {
 }
 
 // Check for duplicate username
-$statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-$statement->bindValue("username", $username);
-$statement->execute();
-$user = $statement->fetch();
-
+$user = fetchUserByUsername($username);
 if ($user) {
   $_SESSION["error-msg"] = "Username already exists";
   header("Location: ../register.php");
