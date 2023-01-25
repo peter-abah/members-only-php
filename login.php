@@ -15,7 +15,7 @@
 
 <!-- Show error message if any -->
 <?php if (!empty($_SESSION["error-msg"])): ?>
-    <p>Unable to register. <?= $_SESSION["error-msg"] ?></p>
+    <p class="error-msg">Unable to register. <?= $_SESSION["error-msg"] ?></p>
 <?php endif;
 unset($_SESSION["error-msg"]);
 ?>

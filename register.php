@@ -2,6 +2,7 @@
 include_once "header.php";
 ?>
 
+<h2>Register</h2>
 <form action="auth/register.php" method="post">
     <label>Username:
         <input type="text" name="username" maxlength="50" required>
@@ -19,7 +20,7 @@ include_once "header.php";
 </form>
 
 <?php if (!empty($_SESSION["error-msg"])): ?>
-    <p>Unable to register. <?= $_SESSION["error-msg"] ?></p>
+    <p class="error-msg">Unable to register. <?= $_SESSION["error-msg"] ?></p>
 <?php endif;
 unset($_SESSION["error-msg"]);
 ?>

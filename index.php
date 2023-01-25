@@ -20,10 +20,10 @@ function postUser($post) {
 
 <?php if (isLoggedIn()): ?>
     <h2>Make a POST!</h2>
-    <form action="posts/create.php" method="post">
+    <form class="post-form" action="posts/create.php" method="post">
         <label>Title:
             <input type="text" name="title" required>
-        \</label>
+        </label>
 
         <label>Body:
             <textarea name="body" required></textarea>
@@ -33,15 +33,15 @@ function postUser($post) {
     </form>
 
     <?php if (!empty($_SESSION["error-msg"])): ?>
-        <p>Unable to create post. <?= $_SESSION["error-msg"] ?></p>
+        <p class="error-msg">Unable to create post. <?= $_SESSION["error-msg"] ?></p>
     <?php endif;
     unset($_SESSION["error-msg"]);
 endif ?>
 
 <section>
-    <ul>
+    <ul class="posts-list">
         <?php foreach($posts as $post): ?>
-            <li>
+            <li class="post">
                 <h3>
                     <?= htmlentities($post["title"]) ?> 
                     <em><?= htmlentities(postUser($post)) ?></em>
